@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2018 Rubic. All rights reserved.
+    See LICENSE.txt for license details.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Tax\Model\TaxConfigProvider">
+        <plugin name="geo_ip_country" type="Rubic\CleanCheckoutGeo\Plugin\GeoIpCountryPlugin" />
+    </type>
+    <preference for="Magento\Directory\Helper\Data" type="Rubic\CleanCheckoutGeo\Helper\Directory\Data" />
+</config>
