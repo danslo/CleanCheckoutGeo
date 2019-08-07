@@ -70,11 +70,12 @@ class Data extends \Magento\Directory\Helper\Data
      */
     public function getDefaultCountry($store = null)
     {
+        $geoIpEnabled = $this->scopeConfig->getValue('clean_checkout/geo_ip/enabled', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         /**
          * null  = not cached
          * false = couldn't get country from IP
          */
-        if ($store === null && $this->country === null) {
+        if ($geoIpEnabled && $store === null && $this->country === null) {
             $country = $this->geoService->getCountry();
             $this->country = $country !== null ? $country : false;
         }
